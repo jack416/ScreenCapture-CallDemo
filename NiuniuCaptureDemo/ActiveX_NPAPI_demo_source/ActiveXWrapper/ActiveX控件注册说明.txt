@@ -1,0 +1,2 @@
+使用 regsvr32 ActiveXWrapper.dll进行注册。
+注意需要将niuniucapture.dll与ActiveXWrapper.dll在同一个目录。如上述注册后，ActiveXWrapper.dll会被复制到系统目录下，需要将niuniucapture.dll对应的也复制过去，否则控件将找不到截图组件。

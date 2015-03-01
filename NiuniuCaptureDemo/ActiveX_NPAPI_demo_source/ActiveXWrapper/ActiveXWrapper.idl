@@ -1,0 +1,52 @@
+// ActiveXWrapper.idl : ActiveXWrapper 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(ActiveXWrapper.tlb)和封送处理代码。
+
+#include "olectl.h"
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(7C7F4B2E-6612-485A-ACA2-D4A57C14BF47),
+	dual,
+	nonextensible,
+	helpstring("ICActiveXWrapper 接口"),
+	pointer_default(unique)
+]
+interface ICActiveXWrapper : IDispatch{
+	[id(1), helpstring("方法TestControl")] HRESULT TestControl(void);
+	[id(2), helpstring("方法Test")] HRESULT Test(void);
+};
+
+[
+	uuid(435A0C2E-1094-4677-87B4-BF83432F4325),
+	version(1.0),
+	helpstring("ActiveXWrapper 1.0 类型库")
+]
+library ActiveXWrapperLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(7BE08212-A8B5-420F-BFD4-3A699470ACF1),
+		helpstring("_ICActiveXWrapperEvents 接口")
+	]
+	dispinterface _ICActiveXWrapperEvents
+	{
+		properties:
+		methods:		
+		[id(1), helpstring("方法TestEvent1")] HRESULT TestEvent1(SHORT val);
+	};
+	[
+		uuid(48C64D48-4F28-4374-9927-563F1FDCD4A6),
+		control,
+		helpstring("CActiveXWrapper Class")
+	]
+	coclass CActiveXWrapper
+	{
+		[default] interface ICActiveXWrapper;
+		[default, source] dispinterface _ICActiveXWrapperEvents;
+	};
+};

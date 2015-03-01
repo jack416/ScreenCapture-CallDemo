@@ -1,0 +1,13 @@
+<!doctype html>  
+<html>  
+<title>TEST WEB PAGE for capture plugin</title>  
+<body>  
+<embed id="capture" type="application/capture-plugin" width=0 height=0 ></object>  
+
+<script>
+var capture = document.getElementById('capture');
+</script>
+<br />  
+<input type="button" value="capture" onclick='try{capture.screencapture();}catch(eee){alert(eee.Message);}' />
+</body>  
+</html>  

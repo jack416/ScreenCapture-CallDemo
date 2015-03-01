@@ -1,0 +1,9 @@
+; ActiveXWrapper.def : 定义模块参数。
+
+LIBRARY      "ActiveXWrapper.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE
