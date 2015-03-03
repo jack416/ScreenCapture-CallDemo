@@ -10,6 +10,7 @@
 #endif
 
 #pragma warning(disable:4482)
+#pragma warning(disable:4311)
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
 
 class CAboutDlg : public CDialog
@@ -65,6 +66,7 @@ typedef enum ExtendFlagTypeEnum
 	emWindowAware,		//设置是否禁用随着DPI放大
 	emDetectSubWindowRect,	//是否自动检测子窗口，暂时无用 
 	emSetSaveName,		//设置保存时的开始文字
+	emSetMagnifierBkColor, //设置放大镜的背景色，不设置则透明
 };
 
 CCaptureTestDlg::CCaptureTestDlg(CWnd* pParent /*=NULL*/)
@@ -89,7 +91,8 @@ CCaptureTestDlg::CCaptureTestDlg(CWnd* pParent /*=NULL*/)
 
 	const char* szSavePath = "牛牛截图";
 	gl_InitCaptureParam(ExtendFlagTypeEnum::emSetSaveName, (unsigned long)szSavePath); //设置保存时的开始文字
-		
+	gl_InitCaptureParam(ExtendFlagTypeEnum::emSetMagnifierBkColor, RGB(255, 255, 255)); //设置放大镜的背景色，不设置则透明
+	
 	gl_InitCaptureParam(ExtendFlagTypeEnum::emWindowAware, 1); //此函数必需窗口创建前调用，其等同于如下代码
 	//通过这段代码调用后，应用程序将不随DPI进行放大，在设置了DPI放大的机器上，需要调用此API； 一定要在窗口创建前进行调用，建议放在应用程序最开始初始化的地方 
 	/*
