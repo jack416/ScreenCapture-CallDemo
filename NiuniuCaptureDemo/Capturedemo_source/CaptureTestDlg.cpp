@@ -67,6 +67,7 @@ typedef enum ExtendFlagTypeEnum
 	emDetectSubWindowRect,	//是否自动检测子窗口，暂时无用 
 	emSetSaveName,		//设置保存时的开始文字
 	emSetMagnifierBkColor, //设置放大镜的背景色，不设置则透明
+	emSetMagnifierLogoText, //设置放大镜上的LOGO字符，可提示快捷键，如： 牛牛截图(CTRL + SHIFT + A)
 };
 
 CCaptureTestDlg::CCaptureTestDlg(CWnd* pParent /*=NULL*/)
@@ -92,6 +93,10 @@ CCaptureTestDlg::CCaptureTestDlg(CWnd* pParent /*=NULL*/)
 	const char* szSavePath = "牛牛截图";
 	gl_InitCaptureParam(ExtendFlagTypeEnum::emSetSaveName, (unsigned long)szSavePath); //设置保存时的开始文字
 	gl_InitCaptureParam(ExtendFlagTypeEnum::emSetMagnifierBkColor, RGB(255, 255, 255)); //设置放大镜的背景色，不设置则透明
+	
+	//以下可以设置放大镜上的LOGO文字，如果不设置，默认显示“牛牛截图” 
+	//gl_InitCaptureParam(ExtendFlagTypeEnum::emSetMagnifierLogoText, (unsigned long)"牛牛截图(Ctrl+Shift+A)");
+	gl_InitCaptureParam(ExtendFlagTypeEnum::emSetMagnifierLogoText, (unsigned long)"  可通过接口设置名称");
 	
 	gl_InitCaptureParam(ExtendFlagTypeEnum::emWindowAware, 1); //此函数必需窗口创建前调用，其等同于如下代码
 	//通过这段代码调用后，应用程序将不随DPI进行放大，在设置了DPI放大的机器上，需要调用此API； 一定要在窗口创建前进行调用，建议放在应用程序最开始初始化的地方 
