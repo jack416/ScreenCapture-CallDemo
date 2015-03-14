@@ -67,7 +67,7 @@ typedef enum ExtendFlagTypeEnum
 	emDetectSubWindowRect,	//是否自动检测子窗口，暂时无用 
 	emSetSaveName,		//设置保存时的开始文字
 	emSetMagnifierBkColor, //设置放大镜的背景色，不设置则透明
-	emSetMagnifierLogoText, //设置放大镜上的LOGO字符，可提示快捷键，如： 牛牛截图(CTRL + SHIFT + A)
+	emSetMagnifierLogoText, //设置放大镜上的LOGO字符，可提示快捷键，如： 牛牛截图(CTRL + SHIFT + A) 
 };
 
 CCaptureTestDlg::CCaptureTestDlg(CWnd* pParent /*=NULL*/)
